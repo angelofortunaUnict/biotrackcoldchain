@@ -1,0 +1,84 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#161655"
+    tools:context=".ui.main.home.HomeFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/home_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/home_menu"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_toolbar">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/biotrak_logo" />
+
+        <TextView
+            style="@style/TextDmSans.Bold.L_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="BioTrak"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/enableTemperatureTag"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/activate_temperature_tag"
+            android:textAppearance="@style/TextDmSans.Medium.M_16"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/orange"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/on_icon"
+            app:iconGravity="start"
+            app:iconSize="32dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/readNfcTag"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_marginTop="24dp"
+            app:backgroundTint="@color/green"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Leggi il Tag NFC"
+            android:textAppearance="@style/TextDmSans.Medium.M_16"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_baseline_nfc_24"
+            app:iconGravity="start"
+            app:iconSize="32dp" />
+        <!--            app:backgroundTint="#4D000000"-->
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

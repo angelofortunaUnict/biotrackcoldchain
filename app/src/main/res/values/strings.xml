@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">BiotrakColdChain</string>
+    <string name="close">Chiudi</string>
+    <string name="readyToScanMessage"><![CDATA[Posiziona il telefono vicino al tag per <font color="#34A3FC"><b>leggere</b></font> il suo contenuto]]></string>
+    <string name="readyToScanWriteMessage"><![CDATA[Posiziona il telefono vicino al tag per <font color="#EB3D78"><b>scrivere</b></font> il suo contenuto]]></string>
+    <string name="readyToScanActiveMessage"><![CDATA[Posiziona il telefono vicino al tag per <font color="#EB3D78"><b>attivarlo</b></font>]]></string>
+    <string name="readyToScanAlreadyActive"><![CDATA[Il rilevamento della temperatura sembra essere già <font color="#EB3D78"><b>attivo</b></font>.\nPremi il tasto <font color="#EB3D78"><b>Disattiva</b></font> se vuoi disattivarlo]]></string>
+    <string name="readyToScanActivationSuccess"><![CDATA[Il tag è stato <font color="#EB3D78"><b>attivato</b></font>\n con successo!\nPremi il tasto <font color="#EB3D78"><b>Disattiva</b></font> se vuoi disattivarlo]]></string>
+    <string name="readyToScanDisableSuccess"><![CDATA[Il tag è stato <font color="#EB3D78"><b>disattivato</b></font>\n con successo!\n]]></string>
+    <string name="title_home">Home</string>
+    <string name="title_settings">Impostazioni</string>
+    <string name="exit">Esci</string>
+    <string name="threshold_max">Soglia max</string>
+    <string name="threshold_min">Soglia min</string>
+    <string name="temp_str">%s°C</string>
+    <string name="mean_temperature">Temperatura media</string>
+    <string name="min_temperature">Temperatura min</string>
+    <string name="max_temperature">Temperatura max</string>
+    <string name="correct_result_temp">Tutti i campioni esaminati si trovano all\'interno dell\'intervallo di sicurezza</string>
+    <string name="no_correct_result_temp">Sono state rilevate delle criticità, effettua una verifica</string>
+    <string name="anomalies">Anomalie</string>
+    <string name="disable">Disattiva</string>
+    <string name="activate_temperature_tag">Attiva il Tag di temperatura</string>
+    <string name="not_found_error_description">Tra le possibili cause:\n\n1) Forse hai controllato troppo in fretta. Vi è un tempo minimo di campionamento, forse il Tag non ha ancora avuto modo di registrare un valore.\n\n2) Il Tag non era posizionato correttamente durante la lettura. Torna indietro e rieffettua il procedimento di lettura.\n\n3) Il Tag potrebbe non essere stato attivato. Torna indietro e attivalo prima la catena del freddo abbia inizio.</string>
+    <string name="not_found_title">Qualcosa è andato storto</string>
+    <string name="param_celsius">%1$s °C</string>
+</resources>

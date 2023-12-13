@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.angfort.biotrakcoldchain.ui.main.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_nfcResultFragment"
+            app:destination="@id/nfcResultFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nfcResultFragment"
+        android:name="com.angfort.biotrakcoldchain.ui.main.nfcresult.NfcResultFragment"
+        android:label="NfcResultFragment"
+        tools:layout="@layout/fragment_nfc_result" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.angfort.biotrakcoldchain.ui.main.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

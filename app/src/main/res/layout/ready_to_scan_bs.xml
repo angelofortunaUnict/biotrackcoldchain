@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/readyToScanTitle"
+        style="@style/TextDmSans.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Scansiona"
+        android:textSize="@dimen/text_l_24"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Scansiona" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/readyToScanAnimationView"
+        android:layout_width="172dp"
+        android:layout_height="172dp"
+        android:layout_marginTop="@dimen/dimen_s_8"
+        android:scaleType="centerCrop"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/nfc_reader_read" />
+
+    <TextView
+        android:id="@+id/readyToScanDescription"
+        style="@style/TextDmSans.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_xl_36"
+        android:layout_marginTop="@dimen/dimen_m_16"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_m_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:text="Posiziona il telefono vicino all\'etichetta per leggere il suo contenuto" />
+
+<!--
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/samplingEnabledSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:switchPadding="16dp"
+        android:textAppearance="@style/TextDmSans.Medium"
+        android:textSize="@dimen/text_m_16"
+        android:layout_marginHorizontal="@dimen/dimen_xl_36"
+        android:layout_marginTop="@dimen/dimen_m_16"
+        android:text="@string/enable_temperature_sample" />
+-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dimen_l_24"
+        android:dividerPadding="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/disableButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="@dimen/dimen_xl_36"
+            android:text="@string/disable"
+            android:layout_marginBottom="@dimen/dimen_s_8"
+            android:insetBottom="0dp"
+            android:visibility="gone"
+            android:insetTop="0dp"
+            app:cornerRadius="10dp"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/white"
+            android:letterSpacing="0.1"
+            tools:visibility="gone"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="@dimen/dimen_xl_36"
+            android:layout_marginBottom="@dimen/dimen_l_24"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/close"
+            android:textAppearance="@style/TextDmSans.Medium.L_24"
+            android:textColor="@color/blueLight"
+            android:textSize="@dimen/text_m_16"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:strokeColor="@color/blueLight"
+            app:strokeWidth="2dp" />
+    </LinearLayout>
+</LinearLayout>

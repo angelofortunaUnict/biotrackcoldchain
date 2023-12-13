@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.nfcresult.NfcResultFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:background="@color/primaryBlue"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_24" />
+
+    <LinearLayout
+        android:id="@+id/notFoundContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingHorizontal="@dimen/dimen_xl_36"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/materialToolbar"
+        tools:visibility="gone">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/notFoundAnimation"
+            android:layout_width="124dp"
+            android:layout_height="124dp"
+            android:layout_marginTop="@dimen/dimen_m_16"
+            android:scaleType="centerCrop"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_repeatCount="3"
+            app:lottie_rawRes="@raw/not_found" />
+
+        <TextView
+            style="@style/TextDmSans.Bold.L_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_l_24"
+            android:text="@string/not_found_title"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            style="@style/TextDmSans.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="@dimen/dimen_m_16"
+            android:text="Non sono stati rilevati campioni di temperatura."/>
+
+        <TextView
+            style="@style/TextDmSans.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_l_24"
+            android:text="@string/not_found_error_description"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_m_16" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/contentNsv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:visibility="visible"
+        tools:background="@color/primaryBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/materialToolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/idTemperatureLineChart"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/selectedValueYChart"
+                app:layout_constraintEnd_toStartOf="@+id/selectedValueYChart"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/selectedValueYChart">
+
+                <TextView
+                    android:id="@+id/selectedValueDay"
+                    style="@style/TextDmSans.Medium.M_16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="21/02 - 02:35:58"
+                    android:textColor="#B3FFFFFF" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/selectedValueYChart"
+                style="@style/TextDmSans.Bold.L_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_xl_36"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/idTemperatureLineChart"
+                tools:text="25.1 °C"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/selectedValueMaxTempLabel"
+                style="@style/TextDmSans.Medium.M_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/max_temperature"
+                android:textColor="#B3FFFFFF"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+            <TextView
+                android:id="@+id/selectedValueMaxTemp"
+                style="@style/TextDmSans.Bold.L_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/selectedValueMaxTempLabel"
+                app:layout_constraintEnd_toEndOf="@+id/selectedValueYChart"
+                app:layout_constraintStart_toStartOf="@+id/selectedValueYChart"
+                app:layout_constraintTop_toTopOf="@+id/selectedValueMaxTempLabel"
+                tools:text="25.1 °C" />
+
+            <TextView
+                android:id="@+id/selectedValueMinTempLabel"
+                style="@style/TextDmSans.Medium.M_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/min_temperature"
+                android:textColor="#B3FFFFFF"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/selectedValueMaxTempLabel" />
+
+            <TextView
+                android:id="@+id/selectedValueMinTemp"
+                style="@style/TextDmSans.Bold.L_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/selectedValueMinTempLabel"
+                app:layout_constraintEnd_toEndOf="@+id/selectedValueYChart"
+                app:layout_constraintStart_toStartOf="@+id/selectedValueYChart"
+                app:layout_constraintTop_toTopOf="@+id/selectedValueMinTempLabel"
+                tools:text="25.1 °C" />
+
+            <TextView
+                android:id="@+id/selectedValueMeanTempLabel"
+                style="@style/TextDmSans.Medium.M_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/mean_temperature"
+                android:textColor="#B3FFFFFF"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/selectedValueMinTempLabel" />
+
+            <TextView
+                android:id="@+id/selectedValueMeanTemp"
+                style="@style/TextDmSans.Bold.L_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/selectedValueMeanTempLabel"
+                app:layout_constraintEnd_toEndOf="@+id/selectedValueYChart"
+                app:layout_constraintStart_toStartOf="@+id/selectedValueYChart"
+                app:layout_constraintTop_toTopOf="@+id/selectedValueMeanTempLabel"
+                tools:text="25.1 °C" />
+
+
+            <LinearLayout
+                android:id="@+id/infoLl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_m_16"
+                android:layout_marginTop="@dimen/dimen_xl_36"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/selectedValueMeanTempLabel">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/selectedValueCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:cardBackgroundColor="@color/green"
+                    app:cardCornerRadius="@dimen/dimen_l_24">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/nfcResultCardIcon"
+                            android:layout_width="54dp"
+                            android:layout_height="54dp"
+                            android:layout_marginStart="@dimen/dimen_m_16"
+                            android:src="@drawable/ic_baseline_check_circle_24"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/nfcResultCardDescription"
+                            style="@style/TextDmSans.Medium.M_16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/dimen_l_24"
+                            android:gravity="center_horizontal"
+                            android:text="@string/correct_result_temp"
+                            android:textColor="#B3FFFFFF"
+                            app:layout_constrainedWidth="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/nfcResultCardIcon"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/nfcResultAnomalies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_l_24"
+                    android:text="@string/anomalies"
+                    android:textAppearance="@style/TextDmSans.Bold.L_24"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/selectedValueNotCorrectRv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_m_16"
+                android:clipChildren="true"
+                android:clipToPadding="true"
+                android:nestedScrollingEnabled="false"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/infoLl"
+                tools:itemCount="5"
+                tools:listitem="@layout/result_nfc_not_correct_item" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
